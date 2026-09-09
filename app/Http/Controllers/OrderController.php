@@ -52,10 +52,10 @@ class OrderController extends Controller
         }
 
         return [
-            'cliente' => [$obrigatorio, 'string', 'max:255'],
-            'status' => [$obrigatorio, 'string', 'max:255'],
-            'codigo_pedido' => [$obrigatorio, 'string', 'max:255', $codigo],
-            'total' => [$obrigatorio, 'integer', 'min:0'],
+            'cliente' => array_merge(explode('|', $obrigatorio), ['string', 'max:255']),
+            'status' => array_merge(explode('|', $obrigatorio), ['string', 'max:255']),
+            'codigo_pedido' => array_merge(explode('|', $obrigatorio), ['string', 'max:255', $codigo]),
+            'total' => array_merge(explode('|', $obrigatorio), ['integer', 'min:0']),
         ];
     }
 }
